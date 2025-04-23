@@ -6,7 +6,10 @@ being accessed using a number of different techniques.
 The one requirement in these techniques is preventing access to a page without
 using any authentication systems.
 
-## Running Project
+Note: We do make use of Basic Authentication here, but only because it is so
+simple to implement.
+
+## Running The Project
 
 This project is set up as a self-contained system that uses [DDEV](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
 to run. In order to run this project you need to install that system first. Once
@@ -26,10 +29,12 @@ When you are finished using the project, run `ddev delete` to remove everything.
 The project is split into a number of different techniques for protecting a page.
 These are as follows:
 
+- Basic Auth
 - Cookie
 - CSRF
 - Dynamic Link
 - Form
+- IP
 - JWT
 - Referrer
 

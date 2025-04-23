@@ -1,14 +1,20 @@
 <?php
 
+$authorised = false;
+
 if (isset($_GET['link'])) {
     $link = base64_decode($_GET['link']);
     list($ip, $time) = explode('/', $link);
-    if ($ip !== $_SERVER['REMOTE_ADDR'] || $time <= (time() - 60)) {
-      die('Access denied: Invalid link.');
+    if ($ip === $_SERVER['REMOTE_ADDR'] || $time >= (time() - 60)) {
+      $authorised = true;
     }
 }
-else {
-  die('Access denied: Invalid link.');
+
+if ($authorised === false) {
+  header('HTTP/1.0 401 Unauthorized');
+  $message = 'Invalid link.';
+  include '../denied.php';
+  die();
 }
 
 ?>

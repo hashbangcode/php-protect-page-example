@@ -6,7 +6,10 @@ $passedCsrf = $_GET['csrf'] ?? FALSE;
 $csrf = $_SESSION['csrf'] ?? FALSE;
 
 if ($passedCsrf === FALSE || $csrf === FALSE || $passedCsrf !== $csrf) {
-  die('Access denied: Invalid CSRF.');
+  header('HTTP/1.0 401 Unauthorized');
+  $message = 'Invalid CSRF.';
+  include '../denied.php';
+  die();
 }
 
 ?>

@@ -14,7 +14,9 @@
             <p><a href="/form/">Form</a></p>
             <p><a href="/dynamic-link/">Dynamic Link</a></p>
             <p><a href="/csrf/">CSRF</a></p>
+            <p><a href="/ip/">IP</a></p>
             <p><a href="/jwt/">JWT</a></p>
+            <p><a href="/basicauth/">Basic Auth</a></p>
         </div>
     </body>
 </html>

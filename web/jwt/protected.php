@@ -5,13 +5,19 @@ require_once "jwt.php";
 $jwtToken = $_GET["jwt"] ?? '';
 
 try {
-  $jwtToken = jwt_decode($jwtToken, JWT_KEY);
+    $jwtToken = jwt_decode($jwtToken, JWT_KEY);
 } catch (Exception $e) {
-  die('Access denied: Invalid jwt.');
+    header('HTTP/1.0 401 Unauthorized');
+    $message = 'Invalid JWT.';
+    include '../denied.php';
+    die();
 }
 
 if (!isset($jwtToken['ip']) || !isset($jwtToken['time']) && ($jwtToken['ip'] !== $_SERVER["REMOTE_ADDR"] && $jwtToken['time'] <= (time() - 60))) {
-  die('Access denied: Invalid jwt.');
+    header('HTTP/1.0 401 Unauthorized');
+    $message = 'Invalid JWT.';
+    include '../denied.php';
+    die();
 }
 
 ?>

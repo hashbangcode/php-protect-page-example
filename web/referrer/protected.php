@@ -2,7 +2,10 @@
 
 $allowed_referrer = 'https://php-protect.ddev.site/';
 if (!isset($_SERVER['HTTP_REFERER']) || !str_contains($_SERVER['HTTP_REFERER'], $allowed_referrer)) {
-  die('Access denied: Invalid referrer.');
+  header('HTTP/1.0 401 Unauthorized');
+  $message = 'Invalid referrer.';
+  include '../denied.php';
+  die();
 }
 
 ?>

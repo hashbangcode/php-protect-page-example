@@ -10,7 +10,9 @@
       <li class="nav-item"><a href="/form/" class="nav-link">Form</a></li>
       <li class="nav-item"><a href="/dynamic-link/" class="nav-link">Dynamic Link</a></li>
       <li class="nav-item"><a href="/csrf/" class="nav-link">CSRF</a></li>
+      <li class="nav-item"><a href="/ip/" class="nav-link">IP</a></li>
       <li class="nav-item"><a href="/jwt/" class="nav-link">JWT</a></li>
+      <li class="nav-item"><a href="/basicauth/" class="nav-link">Basic Auth</a></li>
     </ul>
   </header>
 </div>
