@@ -16,7 +16,7 @@ you have DDEV installed then following the following steps.
 to.
 - Run `ddev start` to start the project. If you are starting for the first time
 then this will download everything you need before starting the project.
-- Once everything is installed you can visit https://phpsession.ddev.site/ or
+- Once everything is installed you can visit https://php-protect.ddev.site/ or
 run `ddev launch`, which will open a browser  and take you to that URL.
 
 When you are finished using the project, run `ddev delete` to remove everything.
