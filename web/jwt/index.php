@@ -1,13 +1,16 @@
 <?php
 
+// Include the JWT functions.
 require_once "jwt.php";
 
+// Generate our payload.
 $payload = [
   "ip" => $_SERVER["REMOTE_ADDR"],
   "time" => time(),
 ];
 
-$payload = jwt_encode($payload, JWT_KEY);
+// Encode our payload.
+$jwt = jwt_encode($payload, JWT_KEY);
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +24,7 @@ $payload = jwt_encode($payload, JWT_KEY);
 
         <div class="container">
             <h1>JWT</h1>
-            <p><a href="/jwt/protected.php?jwt=<?php echo $payload; ?>">JWT Protected</a></p>
+            <p><a href="/jwt/protected.php?jwt=<?php echo $jwt; ?>">JWT Protected</a></p>
         </div>
     </body>
 </html>

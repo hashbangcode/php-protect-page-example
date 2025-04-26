@@ -1,9 +1,12 @@
 <?php
 
+// Start the session so we can store the CSRF token there.
 session_start();
 
+// Generate the CSRF token.
 $csrf = hash('sha256', bin2hex(random_bytes(15)));
 
+// Store the CSRF token in the session.
 $_SESSION['csrf'] = $csrf;
 
 ?>

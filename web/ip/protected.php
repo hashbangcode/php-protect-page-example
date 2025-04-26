@@ -1,10 +1,10 @@
 <?php
 
-// Grab user credentials.
+// Grab user IP address.
 $ip = $_SERVER['REMOTE_ADDR'];
 
-// Validate the credentials.
 if ($ip !== '172.18.0.5') {
+    // The IP address is not correct, issue an access denied.
     header('HTTP/1.0 401 Unauthorized');
     $message = 'Invalid IP address.';
     include '../denied.php';

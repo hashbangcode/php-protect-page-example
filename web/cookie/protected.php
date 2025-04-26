@@ -1,12 +1,14 @@
 <?php
 
 if (!isset($_COOKIE['cookie_protected']) || $_COOKIE['cookie_protected'] !== 'allow') {
+    // Cookie isn't set or doesn't have our value in it.
     header('HTTP/1.0 401 Unauthorized');
     $message = 'Invalid cookie.';
     include '../denied.php';
     die();
 }
 
+// Delete the cookie.
 setcookie("cookie_protected", '',  time()-3600, '/cookie/');
 
 ?>

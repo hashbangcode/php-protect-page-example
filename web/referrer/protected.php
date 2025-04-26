@@ -1,11 +1,14 @@
 <?php
 
-$allowed_referrer = 'https://php-protect.ddev.site/';
+// Location of page that the user must have visited first.
+$allowed_referrer = '/referrer/';
+
 if (!isset($_SERVER['HTTP_REFERER']) || !str_contains($_SERVER['HTTP_REFERER'], $allowed_referrer)) {
-  header('HTTP/1.0 401 Unauthorized');
-  $message = 'Invalid referrer.';
-  include '../denied.php';
-  die();
+    // The user didn't come from the correct place, so deny access.
+    header('HTTP/1.0 401 Unauthorized');
+    $message = 'Invalid referrer.';
+    include '../denied.php';
+    die();
 }
 
 ?>

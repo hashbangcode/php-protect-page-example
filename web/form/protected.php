@@ -1,10 +1,11 @@
 <?php
 
 if (!isset($_POST['protected_form']) || $_POST['protected_form'] === true) {
-  header('HTTP/1.0 401 Unauthorized');
-  $message = 'Invalid form submission.';
-  include '../denied.php';
-  die();
+    // The user hasn't submitted the form, deny access.
+    header('HTTP/1.0 401 Unauthorized');
+    $message = 'Invalid form submission.';
+    include '../denied.php';
+    die();
 }
 
 ?>

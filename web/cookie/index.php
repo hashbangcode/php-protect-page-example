@@ -1,5 +1,5 @@
 <?php
-
+// Set the cookie for this section of the site.
 setcookie("cookie_protected", 'allow',  time()+3600, '/cookie/');
 
 ?>

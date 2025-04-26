@@ -1,15 +1,18 @@
 <?php
 
+// Start the session so that we can grab the CSRF token from it.
 session_start();
 
+// Get the passed CSRF token and the one stored in the session.
 $passedCsrf = $_GET['csrf'] ?? FALSE;
 $csrf = $_SESSION['csrf'] ?? FALSE;
 
 if ($passedCsrf === FALSE || $csrf === FALSE || $passedCsrf !== $csrf) {
-  header('HTTP/1.0 401 Unauthorized');
-  $message = 'Invalid CSRF.';
-  include '../denied.php';
-  die();
+    // The tokens do not match, deny the user access.
+    header('HTTP/1.0 401 Unauthorized');
+    $message = 'Invalid CSRF.';
+    include '../denied.php';
+    die();
 }
 
 ?>
